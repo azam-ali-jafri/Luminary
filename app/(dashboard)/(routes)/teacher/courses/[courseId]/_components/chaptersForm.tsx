@@ -50,11 +50,13 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
   });
 
   const { isSubmitting, isValid } = form.formState;
+  const { reset } = form;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post(`/api/courses/${courseId}/chapters`, values);
       toast.success("Chapter created");
+      reset();
       toggleCreating();
       router.refresh();
     } catch {

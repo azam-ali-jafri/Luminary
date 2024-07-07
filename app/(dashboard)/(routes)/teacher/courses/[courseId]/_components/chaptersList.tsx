@@ -36,6 +36,8 @@ export const ChaptersList = ({
   }, [items]);
 
   const onDragEnd = (result: DropResult) => {
+    console.log(result);
+
     if (!result.destination) return;
 
     const items = Array.from(chapters);

@@ -28,7 +28,7 @@ interface CategoryFormProps {
 }
 
 const formSchema = z.object({
-  categoryId: z.string().min(1),
+  categoryId: z.string().min(1, { message: "category is required" }),
 });
 
 export const CategoryForm = ({
